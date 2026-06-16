@@ -1,77 +1,40 @@
-window.onload = function(){
-
-    document.getElementById("investimento").innerHTML = "-";
-    document.getElementById("economia").innerHTML = "-";
-    document.getElementById("retorno").innerHTML = "-";
-    document.getElementById("roi").innerHTML = "-";
-    document.getElementById("anual").innerHTML = "-";
-
-}
-
 function moeda(valor){
-
     return valor.toLocaleString('pt-BR',{
         style:'currency',
         currency:'BRL'
     });
-
 }
 
 function calcular(){
 
-    let consumo =
-    parseFloat(document.getElementById("consumo").value) || 0;
+    let consumo = parseFloat(document.getElementById("consumo").value);
 
-    const diesel = 7.00;
-
-    const economiaPercentual = 3;
-
-    const dosagem = 1;
-
-    const custoLitroFQ4 = 165;
-
-    let litrosFQ4 =
-    (consumo * dosagem) / 1000;
-
-    let investimento =
-    litrosFQ4 * custoLitroFQ4;
-
-    let economia =
-    consumo * diesel * (economiaPercentual / 100);
-
-    let retorno =
-    economia - investimento;
-
-    let roi = 0;
-
-    if(investimento > 0){
-
-        roi =
-        (retorno / investimento) * 100;
-
+    // se vazio, não calcula
+    if(!consumo){
+        alert("Digite o consumo mensal de diesel");
+        return;
     }
 
-    let anual =
-    retorno * 12;
+    const diesel = 7.00;
+    const economiaPercentual = 3;
+    const custoFQ4Litro = 165;
+    const dosagem = 1;
 
-    document.getElementById("investimento").innerHTML =
-    moeda(investimento);
+    let litrosFQ4 = (consumo * dosagem) / 1000;
 
-    document.getElementById("economia").innerHTML =
-    moeda(economia);
+    let investimento = litrosFQ4 * custoFQ4Litro;
 
-    document.getElementById("retorno").innerHTML =
-    moeda(retorno);
+    let economia = consumo * diesel * (economiaPercentual / 100);
 
-    document.getElementById("roi").innerHTML =
-    roi.toFixed(1) + "%";
+    let retorno = economia - investimento;
 
-    document.getElementById("anual").innerHTML =
-    moeda(anual);
+    let roi = (retorno / investimento) * 100;
 
+    let anual = retorno * 12;
+
+    document.getElementById("investimento").innerHTML = moeda(investimento);
+    document.getElementById("economia").innerHTML = moeda(economia);
+    document.getElementById("retorno").innerHTML = moeda(retorno);
+    document.getElementById("roi").innerHTML = roi.toFixed(1) + "%";
+    document.getElementById("anual").innerHTML = moeda(anual);
 }
-document.getElementById("investimento").innerHTML = "-";
-document.getElementById("economia").innerHTML = "-";
-document.getElementById("retorno").innerHTML = "-";
-document.getElementById("roi").innerHTML = "-";
-document.getElementById("anual").innerHTML = "-";
