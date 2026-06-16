@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+}
+
+header{
+    background:#003f88;
+    color:white;
+    padding:20px;
+}
+
+.topo{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.topo img{
+    height:70px;
+}
+
+.container{
+    max-width:1200px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    padding:20px;
+}
+
+.card,
+.resultado{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+label{
+    display:block;
+    margin-top:15px;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    margin-top:25px;
+    width:100%;
+    padding:15px;
+    background:#003f88;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0059c7;
+}
+
+.resultado h2{
+    margin-bottom:25px;
+}
+
+.linha{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid #eee;
+}
+
+.destaque{
+    font-size:22px;
+    color:#009933;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#777;
+}
+
+@media(max-width:768px){
+
+.container{
+    grid-template-columns:1fr;
+}
+
+.topo{
+    flex-direction:column;
+    gap:15px;
+}
+
+}
