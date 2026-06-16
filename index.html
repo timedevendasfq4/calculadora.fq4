@@ -12,7 +12,6 @@
 <header>
     <div class="topo">
         <h1>Calculadora de Economia FQ4</h1>
-        <img src="logo-fq4.png" alt="FQ4">
     </div>
 </header>
 
@@ -24,37 +23,57 @@
 
         <input type="number" id="consumo" placeholder="Ex: 40000">
 
-        <button onclick="calcular()">CALCULAR ECONOMIA</button>
+        <button onclick="calcular()">CALCULAR</button>
 
     </div>
 
     <div class="resultado">
 
-        <h2>Resultado</h2>
+        <h2>Resultados</h2>
+
+        <div class="linha">
+            <span>Litros de FQ4 (Tratamento Contínuo)</span>
+            <strong id="fq4"></strong>
+        </div>
+
+        <div class="linha">
+            <span>Litros de FQ4 (Choque Inicial)</span>
+            <strong id="fq4choque"></strong>
+        </div>
 
         <div class="linha">
             <span>Investimento em FQ4</span>
-            <strong id="investimento">-</strong>
+            <strong id="investimento"></strong>
         </div>
 
         <div class="linha">
             <span>Economia Estimada</span>
-            <strong id="economia">-</strong>
+            <strong id="economia"></strong>
         </div>
 
         <div class="linha">
             <span>Retorno Líquido</span>
-            <strong id="retorno">-</strong>
+            <strong id="retorno"></strong>
         </div>
 
         <div class="linha">
             <span>ROI</span>
-            <strong id="roi">-</strong>
+            <strong id="roi"></strong>
         </div>
 
         <div class="linha destaque">
             <span>Economia Anual</span>
-            <strong id="anual">-</strong>
+            <strong id="anual"></strong>
+        </div>
+
+        <div class="obs">
+
+            <h3>Modo de Aplicação FQ4</h3>
+
+            <p><b>🔴 Dosagem de Choque:</b> 2 ml por litro no primeiro abastecimento (limpeza do sistema e eliminação de contaminação acumulada).</p>
+
+            <p><b>🟢 Tratamento Contínuo:</b> 1 ml por litro de diesel para manutenção preventiva e proteção constante do sistema.</p>
+
         </div>
 
     </div>
