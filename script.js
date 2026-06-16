@@ -1,3 +1,13 @@
+window.onload = function(){
+
+    document.getElementById("investimento").innerHTML = "-";
+    document.getElementById("economia").innerHTML = "-";
+    document.getElementById("retorno").innerHTML = "-";
+    document.getElementById("roi").innerHTML = "-";
+    document.getElementById("anual").innerHTML = "-";
+
+}
+
 function moeda(valor){
 
     return valor.toLocaleString('pt-BR',{
