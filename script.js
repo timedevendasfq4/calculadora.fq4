@@ -1,53 +1,37 @@
-function moeda(valor){
-    return valor.toLocaleString('pt-BR',{
-        style:'currency',
-        currency:'BRL'
-    });
-}
-
 function calcular(){
 
-    let diesel =
-        parseFloat(document.getElementById('diesel').value);
+    let consumo =
+    parseFloat(document.getElementById("consumo").value);
 
-    let volume =
-        parseFloat(document.getElementById('volume').value);
-
-    let economia =
-        parseFloat(document.getElementById('economia').value);
-
-    let dosagem =
-        parseFloat(document.getElementById('dosagem').value);
-
-    let bombona =
-        parseFloat(document.getElementById('bombona').value);
+    let diesel = 7.00;
+    let economiaPercentual = 3;
+    let custoFQ4Litro = 165;
+    let dosagem = 1;
 
     let litrosFQ4 =
-        (volume * dosagem) / 1000;
-
-    let custoLitroFQ4 =
-        bombona / 20;
+    (consumo * dosagem) / 1000;
 
     let investimento =
-        litrosFQ4 * custoLitroFQ4;
+    litrosFQ4 * custoFQ4Litro;
 
-    let economiaTotal =
-        volume * diesel * (economia / 100);
+    let economia =
+    consumo * diesel * (economiaPercentual / 100);
 
     let retorno =
-        economiaTotal - investimento;
+    economia - investimento;
 
-    document.getElementById('fq4').innerHTML =
-        litrosFQ4.toFixed(2) + " L";
+    let anual =
+    retorno * 12;
 
-    document.getElementById('investimento').innerHTML =
-        moeda(investimento);
+    document.getElementById("investimento").innerHTML =
+    moeda(investimento);
 
-    document.getElementById('economiaTotal').innerHTML =
-        moeda(economiaTotal);
+    document.getElementById("economia").innerHTML =
+    moeda(economia);
 
-    document.getElementById('retorno').innerHTML =
-        moeda(retorno);
+    document.getElementById("retorno").innerHTML =
+    moeda(retorno);
+
+    document.getElementById("anual").innerHTML =
+    moeda(anual);
 }
-
-calcular();
