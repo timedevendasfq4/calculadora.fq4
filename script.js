@@ -60,5 +60,3 @@ function calcular(){
     moeda(anual);
 
 }
-
-calcular();
