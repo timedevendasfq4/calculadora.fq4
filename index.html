@@ -1,86 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora FQ4</title>
-<link rel="stylesheet" href="style.css">
+    <title>Calculadora FQ4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
 
-<body>
+<h1>Calculadora de Economia FQ4</h1>
 
-<header>
-    <div class="topo">
-        <h1>Calculadora de Economia FQ4</h1>
-    </div>
-</header>
+<label>Consumo mensal de diesel (L):</label>
+<br><br>
 
-<div class="container">
+<input type="number" id="diesel" placeholder="Ex: 40000" style="width:100%; padding:10px;">
 
-    <div class="card">
+<br><br>
 
-        <label>Consumo Mensal de Diesel (Litros)</label>
+<button onclick="calcular()" style="padding:10px 20px;">
+Calcular
+</button>
 
-        <input type="number" id="consumo" placeholder="Ex: 40000">
+<hr>
 
-        <button onclick="calcular()">CALCULAR</button>
+<div id="resultado"></div>
 
-    </div>
+<script>
+function calcular() {
 
-    <div class="resultado">
+    let diesel = Number(document.getElementById("diesel").value);
 
-        <h2>Resultados</h2>
+    let fq4 = diesel / 1000;
+    let custoFQ4 = fq4 * 165;
+    let gastoDiesel = diesel * 7;
+    let economia = gastoDiesel * 0.03;
+    let ganho = economia - custoFQ4;
 
-        <div class="linha">
-            <span>Litros de FQ4 (Tratamento Contínuo)</span>
-            <strong id="fq4"></strong>
-        </div>
+    document.getElementById("resultado").innerHTML = `
+        <h2>Resultado</h2>
 
-        <div class="linha">
-            <span>Litros de FQ4 (Choque Inicial)</span>
-            <strong id="fq4choque"></strong>
-        </div>
+        <p><b>Consumo FQ4:</b> ${fq4.toFixed(1)} L</p>
 
-        <div class="linha">
-            <span>Investimento em FQ4</span>
-            <strong id="investimento"></strong>
-        </div>
+        <p><b>Investimento em FQ4:</b>
+        R$ ${custoFQ4.toLocaleString('pt-BR')}</p>
 
-        <div class="linha">
-            <span>Economia Estimada</span>
-            <strong id="economia"></strong>
-        </div>
+        <p><b>Gasto com Diesel:</b>
+        R$ ${gastoDiesel.toLocaleString('pt-BR')}</p>
 
-        <div class="linha">
-            <span>Retorno Líquido</span>
-            <strong id="retorno"></strong>
-        </div>
+        <p><b>Economia mínima (3%):</b>
+        R$ ${economia.toLocaleString('pt-BR')}</p>
 
-        <div class="linha">
-            <span>ROI</span>
-            <strong id="roi"></strong>
-        </div>
-
-        <div class="linha destaque">
-            <span>Economia Anual</span>
-            <strong id="anual"></strong>
-        </div>
-
-        <div class="obs">
-
-            <h3>Modo de Aplicação FQ4</h3>
-
-            <p><b>🔴 Dosagem de Choque:</b> 2 ml por litro no primeiro abastecimento (limpeza do sistema e eliminação de contaminação acumulada).</p>
-
-            <p><b>🟢 Tratamento Contínuo:</b> 1 ml por litro de diesel para manutenção preventiva e proteção constante do sistema.</p>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+        <p><b>Ganho Líquido:</b>
+        R$ ${ganho.toLocaleString('pt-BR')}</p>
+    `;
+}
+</script>
 
 </body>
 </html>
