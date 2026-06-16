@@ -31,7 +31,7 @@ box-shadow:0 0 20px rgba(0,0,0,0.08);
 
 .logo{
 text-align:center;
-font-size:38px;
+font-size:42px;
 font-weight:bold;
 color:#003366;
 margin-bottom:10px;
@@ -45,6 +45,7 @@ margin-bottom:30px;
 
 label{
 font-weight:bold;
+font-size:18px;
 }
 
 input{
@@ -179,11 +180,27 @@ return;
 }
 
 const precoDiesel = 7.00;
-const precoFQ4 = 165.00;
 
 let gastoDiesel = diesel * precoDiesel;
 
 let consumoFQ4 = diesel * 0.001;
+
+// Tabela automática de preço
+
+let precoFQ4;
+
+if(diesel <= 1000){
+precoFQ4 = 187.00;
+}
+else if(diesel <= 5000){
+precoFQ4 = 180.00;
+}
+else if(diesel <= 40000){
+precoFQ4 = 165.00;
+}
+else{
+precoFQ4 = 149.50;
+}
 
 let custoFQ4 = consumoFQ4 * precoFQ4;
 
@@ -215,6 +232,11 @@ R$ ${gastoDiesel.toLocaleString('pt-BR',{minimumFractionDigits:2})}
 <div class="card">
 💧 <strong>Necessidade Mensal de FQ4</strong><br>
 ${consumoFQ4.toFixed(1)} litros
+</div>
+
+<div class="card">
+🏷️ <strong>Valor considerado do FQ4</strong><br>
+R$ ${precoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})} por litro
 </div>
 
 <div class="card">
@@ -270,7 +292,7 @@ Os valores apresentados são estimativas baseadas em uma economia mínima de 3% 
 </div>
 
 <a class="whatsapp"
-href="https://wa.me/5519971253456?text=Olá,%20fiz%20a%20simulação%20na%20calculadora%20FQ4%20e%20gostaria%20de%20mais%20informações."
+href="https://wa.me/5514999999999?text=Olá,%20fiz%20a%20simulação%20na%20calculadora%20FQ4%20e%20gostaria%20de%20mais%20informações."
 target="_blank">
 
 📲 SOLICITAR ORÇAMENTO
@@ -279,9 +301,9 @@ target="_blank">
 
 <div class="rodape">
 
-FQ4 – Filtro Químico de Combustível Diesel<br>
+FQ4 – Filtro Químico de Combustível Diesel<br><br>
 
-Remove água, fungos, bactérias, borra e impurezas, aumentando a vida útil dos componentes e reduzindo custos operacionais.
+Remove água, fungos, bactérias, borra e impurezas, protegendo filtros, bombas e bicos injetores, aumentando a vida útil dos componentes e reduzindo custos operacionais.
 
 </div>
 
