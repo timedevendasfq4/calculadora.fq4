@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Calculadora de Economia FQ4</title>
-
+<title>Calculadora FQ4</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +12,6 @@
 <header>
     <div class="topo">
         <h1>Calculadora de Economia FQ4</h1>
-
         <img src="logo-fq4.png" alt="FQ4">
     </div>
 </header>
@@ -23,67 +20,46 @@
 
     <div class="card">
 
-        <h2>Informe seu consumo mensal</h2>
-
         <label>Consumo Mensal de Diesel (Litros)</label>
 
-        <button onclick="calcular()">
-            CALCULAR ECONOMIA
-        </button>
+        <input type="number" id="consumo" placeholder="Ex: 40000">
+
+        <button onclick="calcular()">CALCULAR ECONOMIA</button>
 
     </div>
 
     <div class="resultado">
 
-        <h2>Resultado da Economia</h2>
+        <h2>Resultado</h2>
 
         <div class="linha">
             <span>Investimento em FQ4</span>
-            <strong id="investimento"></strong>
+            <strong id="investimento">-</strong>
         </div>
 
         <div class="linha">
             <span>Economia Estimada</span>
-            <strong id="economia"></strong>
+            <strong id="economia">-</strong>
         </div>
 
         <div class="linha">
             <span>Retorno Líquido</span>
-            <strong id="retorno"></strong>
+            <strong id="retorno">-</strong>
         </div>
 
         <div class="linha">
             <span>ROI</span>
-            <strong id="roi"></strong>
+            <strong id="roi">-</strong>
         </div>
 
         <div class="linha destaque">
             <span>Economia Anual</span>
-            <strong id="anual"></strong>
-        </div>
-
-        <div class="beneficios">
-
-            <h3>Benefícios Operacionais</h3>
-
-            <ul>
-                <li>✓ Remove água do diesel</li>
-                <li>✓ Combate fungos e bactérias</li>
-                <li>✓ Reduz entupimento de filtros</li>
-                <li>✓ Protege bombas e bicos injetores</li>
-                <li>✓ Menos manutenção corretiva</li>
-                <li>✓ Melhor eficiência da combustão</li>
-            </ul>
-
+            <strong id="anual">-</strong>
         </div>
 
     </div>
 
 </div>
-
-<footer>
-    FQ4 • Filtro Químico de Combustível Diesel
-</footer>
 
 <script src="script.js"></script>
 
