@@ -60,3 +60,8 @@ function calcular(){
     moeda(anual);
 
 }
+document.getElementById("investimento").innerHTML = "-";
+document.getElementById("economia").innerHTML = "-";
+document.getElementById("retorno").innerHTML = "-";
+document.getElementById("roi").innerHTML = "-";
+document.getElementById("anual").innerHTML = "-";
