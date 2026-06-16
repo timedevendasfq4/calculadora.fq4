@@ -14,7 +14,8 @@
 <header>
     <div class="topo">
         <h1>Calculadora de Economia FQ4</h1>
-        <img src="logo-fq4.png" alt="Logo FQ4">
+
+        <img src="logo-fq4.png" alt="FQ4">
     </div>
 </header>
 
@@ -22,20 +23,15 @@
 
     <div class="card">
 
-        <label>Preço do Diesel (R$/L)</label>
-        <input type="number" id="diesel" value="7">
+        <h2>Informe seu consumo mensal</h2>
 
-        <label>Volume de Diesel (Litros)</label>
-        <input type="number" id="volume" value="40000">
+        <label>Consumo Mensal de Diesel (Litros)</label>
 
-        <label>Economia Esperada (%)</label>
-        <input type="number" id="economia" value="3">
-
-        <label>Dosagem FQ4 (ml/L)</label>
-        <input type="number" id="dosagem" value="1">
-
-        <label>Preço da Bombona 20L (R$)</label>
-        <input type="number" id="bombona" value="3300">
+        <input
+            type="number"
+            id="consumo"
+            value="40000"
+            placeholder="Ex: 40000">
 
         <button onclick="calcular()">
             CALCULAR ECONOMIA
@@ -43,28 +39,48 @@
 
     </div>
 
-    <div class="resultado" id="resultado">
+    <div class="resultado">
 
-        <h2>Resultado</h2>
-
-        <div class="linha">
-            <span>Litros de FQ4 Necessários</span>
-            <strong id="fq4"></strong>
-        </div>
+        <h2>Resultado da Economia</h2>
 
         <div class="linha">
-            <span>Investimento FQ4</span>
+            <span>Investimento em FQ4</span>
             <strong id="investimento"></strong>
         </div>
 
         <div class="linha">
             <span>Economia Estimada</span>
-            <strong id="economiaTotal"></strong>
+            <strong id="economia"></strong>
+        </div>
+
+        <div class="linha">
+            <span>Retorno Líquido</span>
+            <strong id="retorno"></strong>
+        </div>
+
+        <div class="linha">
+            <span>ROI</span>
+            <strong id="roi"></strong>
         </div>
 
         <div class="linha destaque">
-            <span>Retorno Líquido</span>
-            <strong id="retorno"></strong>
+            <span>Economia Anual</span>
+            <strong id="anual"></strong>
+        </div>
+
+        <div class="beneficios">
+
+            <h3>Benefícios Operacionais</h3>
+
+            <ul>
+                <li>✓ Remove água do diesel</li>
+                <li>✓ Combate fungos e bactérias</li>
+                <li>✓ Reduz entupimento de filtros</li>
+                <li>✓ Protege bombas e bicos injetores</li>
+                <li>✓ Menos manutenção corretiva</li>
+                <li>✓ Melhor eficiência da combustão</li>
+            </ul>
+
         </div>
 
     </div>
