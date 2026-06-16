@@ -3,182 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Calculadora de Economia FQ4</title>
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,sans-serif;background:#eef2f5;padding:20px;}
-.container{max-width:900px;margin:auto;background:#fff;padding:30px;border-radius:20px;box-shadow:0 0 20px rgba(0,0,0,.08);}
-.topo{background:#294f9f;height:90px;margin:-30px -30px 25px -30px;padding:15px 30px;display:flex;justify-content:flex-end;align-items:center;border-radius:20px 20px 0 0;}
-.logo-fq4 img{height:60px;width:auto;}
-.titulo-principal{text-align:center;color:#003366;font-size:36px;margin-bottom:10px;}
-.subtitulo{text-align:center;color:#666;margin-bottom:30px;}
-label{font-weight:bold;font-size:18px;}
-input{width:100%;padding:15px;font-size:20px;margin-top:10px;border-radius:10px;border:1px solid #ccc;}
-button{width:100%;padding:15px;margin-top:20px;font-size:18px;border:none;border-radius:10px;cursor:pointer;background:#003366;color:#fff;font-weight:bold;}
-button:hover{background:#004c99;}
-.resultado{margin-top:30px;}
-.card{background:#f8f8f8;padding:18px;margin-bottom:12px;border-radius:12px;border-left:6px solid #003366;}
-.destaque{background:#dff5e1;border-left:6px solid #2e7d32;font-size:22px;}
-.economia-anual{background:#2e7d32;color:#fff;text-align:center;padding:25px;border-radius:15px;margin-bottom:15px;}
-.economia-anual h1{font-size:42px;}
-.roi-destaque{background:#003366;color:#fff;text-align:center;padding:20px;border-radius:15px;margin-bottom:15px;}
-.roi-destaque h1{font-size:42px;}
-.explicacao{background:#fff8dc;border-left:6px solid #d4a017;padding:20px;border-radius:12px;margin-top:15px;}
-.whatsapp{display:block;text-align:center;background:#25D366;color:#fff;text-decoration:none;padding:18px;border-radius:10px;font-size:20px;font-weight:bold;margin-top:20px;}
-.rodape{margin-top:30px;text-align:center;color:#666;font-size:14px;}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+<header>
+    <div class="topo">
+        <h1>Calculadora de Economia FQ4</h1>
+        <img src="logo-fq4.png" alt="Logo FQ4">
+    </div>
+</header>
 
 <div class="container">
 
-<div class="topo">
-    <div class="logo-fq4">
-        <img src="logo-fq4.png" alt="FQ4">
+    <div class="card">
+
+        <label>Preço do Diesel (R$/L)</label>
+        <input type="number" id="diesel" value="7">
+
+        <label>Volume de Diesel (Litros)</label>
+        <input type="number" id="volume" value="40000">
+
+        <label>Economia Esperada (%)</label>
+        <input type="number" id="economia" value="3">
+
+        <label>Dosagem FQ4 (ml/L)</label>
+        <input type="number" id="dosagem" value="1">
+
+        <label>Preço da Bombona 20L (R$)</label>
+        <input type="number" id="bombona" value="3300">
+
+        <button onclick="calcular()">
+            CALCULAR ECONOMIA
+        </button>
+
     </div>
+
+    <div class="resultado" id="resultado">
+
+        <h2>Resultado</h2>
+
+        <div class="linha">
+            <span>Litros de FQ4 Necessários</span>
+            <strong id="fq4"></strong>
+        </div>
+
+        <div class="linha">
+            <span>Investimento FQ4</span>
+            <strong id="investimento"></strong>
+        </div>
+
+        <div class="linha">
+            <span>Economia Estimada</span>
+            <strong id="economiaTotal"></strong>
+        </div>
+
+        <div class="linha destaque">
+            <span>Retorno Líquido</span>
+            <strong id="retorno"></strong>
+        </div>
+
+    </div>
+
 </div>
 
-<h1 class="titulo-principal">Calculadora de Economia FQ4</h1>
+<footer>
+    FQ4 • Filtro Químico de Combustível Diesel
+</footer>
 
-<p class="subtitulo">
-Descubra quanto sua operação pode economizar utilizando o FQ4 e qual a necessidade mensal de tratamento do combustível.
-</p>
-
-<label>Consumo Mensal de Diesel (Litros)</label>
-<input type="number" id="diesel" placeholder="Exemplo: 40000">
-
-<button onclick="calcular()">CALCULAR ECONOMIA</button>
-
-<div id="resultado" class="resultado"></div>
-
-</div>
-
-<script>
-function calcular(){
-
-let diesel = parseFloat(document.getElementById('diesel').value);
-
-if(!diesel){
-alert("Informe o consumo mensal de diesel.");
-return;
-}
-
-const precoDiesel = 7.00;
-
-let gastoDiesel = diesel * precoDiesel;
-let consumoFQ4 = diesel * 0.001;
-
-let precoFQ4;
-
-if(diesel <= 1000){
-precoFQ4 = 187.00;
-}
-else if(diesel <= 5000){
-precoFQ4 = 180.00;
-}
-else if(diesel <= 40000){
-precoFQ4 = 165.00;
-}
-else{
-precoFQ4 = 149.50;
-}
-
-let custoFQ4 = consumoFQ4 * precoFQ4;
-let economia = gastoDiesel * 0.03;
-let ganhoLiquido = economia - custoFQ4;
-let economiaAnual = ganhoLiquido * 12;
-let roi = (economia / custoFQ4) * 100;
-
-document.getElementById("resultado").innerHTML = `
-
-<div class="economia-anual">
-<h2>ECONOMIA ANUAL ESTIMADA</h2>
-<h1>R$ ${economiaAnual.toLocaleString('pt-BR',{minimumFractionDigits:2})}</h1>
-</div>
-
-<div class="roi-destaque">
-<h2>RETORNO SOBRE O INVESTIMENTO (ROI)</h2>
-<h1>${roi.toFixed(1)}%</h1>
-</div>
-
-<div class="card">
-🚛 <strong>Investimento Mensal em Diesel</strong><br>
-R$ ${gastoDiesel.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-</div>
-
-<div class="card">
-💧 <strong>Necessidade Mensal de FQ4</strong><br>
-${consumoFQ4.toFixed(1)} litros
-</div>
-
-<div class="card">
-🏷️ <strong>Valor considerado do FQ4</strong><br>
-R$ ${precoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})} por litro
-</div>
-
-<div class="card">
-💰 <strong>Investimento Mensal em FQ4</strong><br>
-R$ ${custoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-</div>
-
-<div class="card">
-📉 <strong>Economia Mínima Estimada (3%)</strong><br>
-R$ ${economia.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-</div>
-
-<div class="card destaque">
-✅ <strong>Ganho Líquido Mensal Estimado</strong><br>
-R$ ${ganhoLiquido.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-</div>
-
-<div class="explicacao">
-<h3>📋 Como utilizar o FQ4</h3><br>
-
-<p><strong>Primeira Aplicação (Choque):</strong><br>
-Aplicar 2 ml de FQ4 para cada litro de diesel tratado.</p><br>
-
-<p><strong>Tratamento Contínuo:</strong><br>
-Após a limpeza inicial, utilizar 1 ml de FQ4 para cada litro de diesel abastecido.</p><br>
-
-<p>O FQ4 atua na descontaminação do diesel, removendo água, fungos, bactérias, borra e impurezas, protegendo filtros, bombas e bicos injetores.</p><br>
-
-<p>Os valores apresentados são estimativas baseadas em uma economia mínima de 3% e diesel a R$ 7,00 por litro.</p>
-</div>
-
-let mensagem = encodeURIComponent(
-`Olá!
-
-Utilizei a Calculadora de Economia FQ4.
-
-📊 Resultado da simulação:
-
-🚛 Consumo mensal de diesel: ${diesel.toLocaleString('pt-BR')} litros
-
-💧 Necessidade mensal de FQ4: ${consumoFQ4.toFixed(1)} litros
-
-🏷️ Valor considerado do FQ4: R$ ${precoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})}/L
-
-💰 Investimento mensal em FQ4: R$ ${custoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-
-📉 Economia mínima estimada (3%): R$ ${economia.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-
-✅ Ganho líquido mensal estimado: R$ ${ganhoLiquido.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-
-🎯 ROI estimado: ${roi.toFixed(1)}%
-
-📈 Economia anual estimada: R$ ${economiaAnual.toLocaleString('pt-BR',{minimumFractionDigits:2})}
-
-Gostaria de receber uma proposta comercial para minha operação.`
-);
-
-<div class="rodape">
-FQ4 – Filtro Químico de Combustível Diesel<br><br>
-Remove água, fungos, bactérias, borra e impurezas, protegendo filtros, bombas e bicos injetores, aumentando a vida útil dos componentes e reduzindo custos operacionais.
-</div>
-`;
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
