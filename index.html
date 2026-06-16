@@ -146,9 +146,31 @@ Após a limpeza inicial, utilizar 1 ml de FQ4 para cada litro de diesel abasteci
 <p>Os valores apresentados são estimativas baseadas em uma economia mínima de 3% e diesel a R$ 7,00 por litro.</p>
 </div>
 
-<a class="whatsapp"
-href="https://wa.me/5519971253456?text=Olá,%20fiz%20a%20simulação%20na%20Calculadora%20FQ4%20e%20gostaria%20de%20mais%20informações."
-target="_blank">📲 SOLICITAR ORÇAMENTO</a>
+let mensagem = encodeURIComponent(
+`Olá!
+
+Utilizei a Calculadora de Economia FQ4.
+
+📊 Resultado da simulação:
+
+🚛 Consumo mensal de diesel: ${diesel.toLocaleString('pt-BR')} litros
+
+💧 Necessidade mensal de FQ4: ${consumoFQ4.toFixed(1)} litros
+
+🏷️ Valor considerado do FQ4: R$ ${precoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})}/L
+
+💰 Investimento mensal em FQ4: R$ ${custoFQ4.toLocaleString('pt-BR',{minimumFractionDigits:2})}
+
+📉 Economia mínima estimada (3%): R$ ${economia.toLocaleString('pt-BR',{minimumFractionDigits:2})}
+
+✅ Ganho líquido mensal estimado: R$ ${ganhoLiquido.toLocaleString('pt-BR',{minimumFractionDigits:2})}
+
+🎯 ROI estimado: ${roi.toFixed(1)}%
+
+📈 Economia anual estimada: R$ ${economiaAnual.toLocaleString('pt-BR',{minimumFractionDigits:2})}
+
+Gostaria de receber uma proposta comercial para minha operação.`
+);
 
 <div class="rodape">
 FQ4 – Filtro Químico de Combustível Diesel<br><br>
