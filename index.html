@@ -1,32 +1,256 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Calculadora FQ4</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Economia FQ4</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f4f8fc;
+    color:#1a1a1a;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#0057b8,#0084ff);
+    color:white;
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.hero h1{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:.95;
+    font-size:1rem;
+}
+
+.calculadora{
+    background:white;
+    margin-top:-30px;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+label{
+    font-weight:600;
+    display:block;
+    margin-bottom:10px;
+}
+
+input{
+    width:100%;
+    padding:16px;
+    border:2px solid #dbe6f4;
+    border-radius:12px;
+    font-size:18px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#0084ff;
+}
+
+button{
+    width:100%;
+    margin-top:20px;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#0057b8;
+    color:white;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#00479a;
+}
+
+.resultados{
+    margin-top:30px;
+    display:none;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+.card h3{
+    font-size:.95rem;
+    color:#666;
+    margin-bottom:10px;
+}
+
+.valor{
+    font-size:1.8rem;
+    font-weight:800;
+}
+
+.azul{
+    color:#0057b8;
+}
+
+.verde{
+    color:#12a150;
+}
+
+.resumo{
+    margin-top:20px;
+    background:#eaf5ff;
+    border-left:6px solid #0057b8;
+    padding:20px;
+    border-radius:12px;
+}
+
+.footer{
+    margin-top:25px;
+    text-align:center;
+    color:#666;
+    font-size:.85rem;
+}
+
+@media(max-width:600px){
+
+.hero{
+    padding:30px 20px;
+}
+
+.hero h1{
+    font-size:1.6rem;
+}
+
+.valor{
+    font-size:1.5rem;
+}
+
+}
+
+</style>
 </head>
-<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
 
-<h1>Calculadora de Economia FQ4</h1>
+<body>
 
-<label>Consumo mensal de diesel (L):</label>
-<br><br>
+<div class="container">
 
-<input type="number" id="diesel" placeholder="Ex: 40000" style="width:100%; padding:10px;">
+    <div class="hero">
+        <h1>🚛 Calculadora de Economia FQ4</h1>
+        <p>Descubra quanto sua operação pode economizar utilizando FQ4 Diesel.</p>
+    </div>
 
-<br><br>
+    <div class="calculadora">
 
-<button onclick="calcular()" style="padding:10px 20px;">
-Calcular
-</button>
+        <label>⛽ Consumo mensal de diesel (litros)</label>
 
-<hr>
+        <input
+            type="number"
+            id="diesel"
+            placeholder="Ex.: 40000">
 
-<div id="resultado"></div>
+        <button onclick="calcular()">
+            📊 CALCULAR ECONOMIA
+        </button>
+
+        <div class="resultados" id="resultados">
+
+            <div class="grid">
+
+                <div class="card">
+                    <h3>⛽ Consumo Mensal de Diesel</h3>
+                    <div class="valor" id="consumoDiesel"></div>
+                </div>
+
+                <div class="card">
+                    <h3>💧 Necessidade Mensal de FQ4</h3>
+                    <div class="valor azul" id="consumoFQ4"></div>
+                </div>
+
+                <div class="card">
+                    <h3>💰 Investimento em FQ4</h3>
+                    <div class="valor" id="custoFQ4"></div>
+                </div>
+
+                <div class="card">
+                    <h3>🚛 Gasto Mensal com Diesel</h3>
+                    <div class="valor" id="gastoDiesel"></div>
+                </div>
+
+                <div class="card">
+                    <h3>📉 Economia Mínima Estimada (3%)</h3>
+                    <div class="valor azul" id="economia"></div>
+                </div>
+
+                <div class="card">
+                    <h3>✅ Ganho Líquido Estimado</h3>
+                    <div class="valor verde" id="ganho"></div>
+                </div>
+
+            </div>
+
+            <div class="resumo" id="mensagem"></div>
+
+            <div class="footer">
+                Simulação baseada em economia mínima estimada de 3% e diesel a R$ 7,00/L.
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <script>
-function calcular() {
 
-    let diesel = Number(document.getElementById("diesel").value);
+function moeda(valor){
+    return valor.toLocaleString('pt-BR',{
+        style:'currency',
+        currency:'BRL'
+    });
+}
+
+function calcular(){
+
+    let diesel = Number(document.getElementById('diesel').value);
+
+    if(!diesel || diesel <= 0){
+        alert("Informe o consumo mensal de diesel.");
+        return;
+    }
 
     let fq4 = diesel / 1000;
     let custoFQ4 = fq4 * 165;
@@ -34,24 +258,36 @@ function calcular() {
     let economia = gastoDiesel * 0.03;
     let ganho = economia - custoFQ4;
 
-    document.getElementById("resultado").innerHTML = `
-        <h2>Resultado</h2>
+    document.getElementById('resultados').style.display='block';
 
-        <p><b>Consumo FQ4:</b> ${fq4.toFixed(1)} L</p>
+    document.getElementById('consumoDiesel').innerHTML =
+        diesel.toLocaleString('pt-BR') + " L";
 
-        <p><b>Investimento em FQ4:</b>
-        R$ ${custoFQ4.toLocaleString('pt-BR')}</p>
+    document.getElementById('consumoFQ4').innerHTML =
+        fq4.toFixed(1) + " L";
 
-        <p><b>Gasto com Diesel:</b>
-        R$ ${gastoDiesel.toLocaleString('pt-BR')}</p>
+    document.getElementById('custoFQ4').innerHTML =
+        moeda(custoFQ4);
 
-        <p><b>Economia mínima (3%):</b>
-        R$ ${economia.toLocaleString('pt-BR')}</p>
+    document.getElementById('gastoDiesel').innerHTML =
+        moeda(gastoDiesel);
 
-        <p><b>Ganho Líquido:</b>
-        R$ ${ganho.toLocaleString('pt-BR')}</p>
-    `;
+    document.getElementById('economia').innerHTML =
+        moeda(economia);
+
+    document.getElementById('ganho').innerHTML =
+        moeda(ganho);
+
+    document.getElementById('mensagem').innerHTML =
+        `<strong>🎯 Resultado:</strong><br><br>
+        Utilizando aproximadamente <strong>${fq4.toFixed(1)} litros de FQ4 por mês</strong>,
+        sua operação poderá economizar cerca de
+        <strong>${moeda(economia)}</strong> por mês.
+        Mesmo considerando apenas uma economia mínima estimada de 3%,
+        o retorno projetado após o investimento em FQ4 é de
+        <strong>${moeda(ganho)}</strong>.`;
 }
+
 </script>
 
 </body>
