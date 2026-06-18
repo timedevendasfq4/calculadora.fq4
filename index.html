@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,23 +21,25 @@ box-sizing:border-box;
 
 body{
 font-family:'Inter',sans-serif;
-background:#f4f8fc;
+background:#f5f8fc;
 color:#1f2937;
 }
 
 .container{
 max-width:1000px;
 margin:auto;
-padding:30px 20px;
+padding:25px;
 }
 
 .hero{
-background:linear-gradient(135deg,#0057b8,#0084ff);
+
+background:linear-gradient(135deg,#0057B8,#0084FF);
 color:white;
 padding:50px 30px;
 border-radius:24px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
 }
 
 .logo{
@@ -49,129 +53,167 @@ margin-bottom:10px;
 }
 
 .hero p{
+font-size:1.05rem;
 opacity:.95;
-font-size:1.1rem;
 }
 
 .calculadora{
+
 background:white;
-margin-top:-35px;
-border-radius:24px;
+margin-top:-30px;
 padding:30px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+border-radius:24px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
 }
 
 label{
-font-weight:700;
+
 display:block;
+font-weight:700;
 margin-bottom:10px;
+
 }
 
 input{
+
 width:100%;
 padding:16px;
 font-size:18px;
-border-radius:12px;
 border:2px solid #dbe6f4;
+border-radius:12px;
+
 }
 
 input:focus{
+
 outline:none;
-border-color:#0084ff;
+border-color:#0084FF;
+
 }
 
 button{
+
 width:100%;
 padding:16px;
 margin-top:15px;
 border:none;
 border-radius:12px;
-background:#0057b8;
+background:#0057B8;
 color:white;
 font-size:18px;
 font-weight:700;
 cursor:pointer;
 transition:.3s;
+
 }
 
 button:hover{
-background:#00479a;
+
+background:#00479A;
+
 }
 
 .resultados{
+
 display:none;
 margin-top:30px;
+
 }
 
 .grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:15px;
+
 }
 
 .card{
+
 background:white;
 padding:20px;
 border-radius:18px;
 box-shadow:0 5px 20px rgba(0,0,0,.06);
+
 }
 
 .card h3{
+
 font-size:.95rem;
 color:#6b7280;
 margin-bottom:10px;
+
 }
 
 .valor{
+
 font-size:1.8rem;
 font-weight:800;
+
 }
 
 .azul{
-color:#0057b8;
+
+color:#0057B8;
+
 }
 
 .verde{
-color:#16a34a;
+
+color:#16A34A;
+
 }
 
 .resumo{
+
 margin-top:25px;
 padding:20px;
-background:#eaf5ff;
-border-left:6px solid #0057b8;
+background:#EAF5FF;
+border-left:6px solid #0057B8;
 border-radius:12px;
-line-height:1.7;
+line-height:1.8;
+
 }
 
 .destaque{
+
 margin-top:20px;
-background:#eafaf0;
-border-left:6px solid #16a34a;
 padding:20px;
+background:#ECFDF3;
+border-left:6px solid #16A34A;
 border-radius:12px;
-font-size:1.05rem;
+line-height:1.8;
+
 }
 
 .whatsapp{
+
 display:block;
 text-decoration:none;
 margin-top:20px;
+
 }
 
 .whatsapp button{
-background:#16a34a;
+
+background:#16A34A;
+
 }
 
 .whatsapp button:hover{
-background:#12803f;
+
+background:#13803F;
+
 }
 
 .footer{
-text-align:center;
+
 margin-top:25px;
+text-align:center;
 font-size:.85rem;
 color:#6b7280;
+
 }
 
 @media(max-width:600px){
@@ -181,12 +223,13 @@ font-size:1.7rem;
 }
 
 .valor{
-font-size:1.5rem;
+font-size:1.4rem;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -195,7 +238,8 @@ font-size:1.5rem;
 
 <div class="hero">
 
-<!-- INSIRA O LOGO AQUI -->
+<!-- Adicione seu logo aqui -->
+
 <!--
 <img src="logo-fq4.png" class="logo">
 -->
@@ -203,7 +247,7 @@ font-size:1.5rem;
 <h1>🚛 Calculadora de Economia FQ4</h1>
 
 <p>
-Descubra em segundos quanto sua operação pode economizar utilizando FQ4 Diesel.
+Descubra quanto sua operação pode economizar utilizando FQ4 Diesel.
 </p>
 
 </div>
@@ -246,23 +290,18 @@ placeholder="Ex.: 40000">
 </div>
 
 <div class="card">
-<h3>📉 Economia Mínima Estimada (3%)</h3>
+<h3>📉 Economia Potencial Mensal</h3>
 <div class="valor azul" id="economia"></div>
 </div>
 
 <div class="card">
-<h3>✅ Ganho Líquido Mensal</h3>
+<h3>💵 Retorno Mensal Estimado</h3>
 <div class="valor verde" id="ganho"></div>
 </div>
 
 <div class="card">
 <h3>📈 Economia Anual Estimada</h3>
 <div class="valor verde" id="economiaAnual"></div>
-</div>
-
-<div class="card">
-<h3>🎯 ROI Estimado</h3>
-<div class="valor azul" id="roi"></div>
 </div>
 
 </div>
@@ -277,13 +316,15 @@ href="https://wa.me/5514999999999"
 target="_blank">
 
 <button>
-📲 Solicitar Atendimento
+📲 Falar com um Especialista
 </button>
 
 </a>
 
 <div class="footer">
-Simulação baseada em economia mínima estimada de 3% e diesel a R$ 7,00/L.
+
+Simulação baseada em uma economia mínima estimada de 3% e diesel a R$ 7,00/L.
+
 </div>
 
 </div>
@@ -295,10 +336,14 @@ Simulação baseada em economia mínima estimada de 3% e diesel a R$ 7,00/L.
 <script>
 
 function moeda(valor){
+
 return valor.toLocaleString('pt-BR',{
+
 style:'currency',
 currency:'BRL'
+
 });
+
 }
 
 function calcular(){
@@ -325,11 +370,9 @@ let ganho = economia - custoFQ4;
 
 let economiaAnual = ganho * 12;
 
-let roi = (ganho / custoFQ4) * 100;
-
 let percentualInvestimento = (custoFQ4 / gastoDiesel) * 100;
 
-document.getElementById('resultados').style.display='block';
+document.getElementById('resultados').style.display = 'block';
 
 document.getElementById('consumoDiesel').innerHTML =
 diesel.toLocaleString('pt-BR') + " L";
@@ -352,25 +395,17 @@ moeda(ganho);
 document.getElementById('economiaAnual').innerHTML =
 moeda(economiaAnual);
 
-document.getElementById('roi').innerHTML =
-roi.toFixed(1) + "%";
-
 document.getElementById('mensagem').innerHTML =
 
 `<strong>🎯 Resultado da Simulação</strong><br><br>
 
-Utilizando aproximadamente <strong>${fq4.toFixed(1)} litros de FQ4 por mês</strong>,
-sua operação poderá economizar cerca de
-<strong>${moeda(economia)}</strong> por mês.
+Sua operação consumindo <strong>${diesel.toLocaleString('pt-BR')} litros de diesel por mês</strong> necessitará aproximadamente <strong>${fq4.toFixed(1)} litros de FQ4</strong>.
 
-Mesmo considerando apenas uma economia mínima estimada de 3%, o retorno projetado após o investimento em FQ4 é de
-<strong>${moeda(ganho)}</strong> por mês.`;
+Considerando uma economia mínima estimada de apenas 3%, o potencial de economia é de <strong>${moeda(economia)}</strong> por mês.`;
 
 document.getElementById('comparativo').innerHTML =
 
-`💡 O investimento em FQ4 representa apenas
-<strong>${percentualInvestimento.toFixed(2)}%</strong>
-do seu gasto mensal com diesel.`;
+`💡 O investimento em FQ4 representa apenas <strong>${percentualInvestimento.toFixed(2)}%</strong> do seu gasto mensal com diesel, podendo gerar um retorno estimado de <strong>${moeda(ganho)}</strong> por mês.`;
 
 }
 
