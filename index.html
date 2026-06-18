@@ -12,151 +12,176 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#f4f8fc;
-    color:#1a1a1a;
+font-family:'Inter',sans-serif;
+background:#f4f8fc;
+color:#1f2937;
 }
 
 .container{
-    max-width:900px;
-    margin:auto;
-    padding:30px 20px;
+max-width:1000px;
+margin:auto;
+padding:30px 20px;
 }
 
 .hero{
-    background:linear-gradient(135deg,#0057b8,#0084ff);
-    color:white;
-    border-radius:20px;
-    padding:40px;
-    text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+background:linear-gradient(135deg,#0057b8,#0084ff);
+color:white;
+padding:50px 30px;
+border-radius:24px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.logo{
+max-width:220px;
+margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:2rem;
-    margin-bottom:10px;
+font-size:2.2rem;
+margin-bottom:10px;
 }
 
 .hero p{
-    opacity:.95;
-    font-size:1rem;
+opacity:.95;
+font-size:1.1rem;
 }
 
 .calculadora{
-    background:white;
-    margin-top:-30px;
-    border-radius:20px;
-    padding:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,.08);
+background:white;
+margin-top:-35px;
+border-radius:24px;
+padding:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
 label{
-    font-weight:600;
-    display:block;
-    margin-bottom:10px;
+font-weight:700;
+display:block;
+margin-bottom:10px;
 }
 
 input{
-    width:100%;
-    padding:16px;
-    border:2px solid #dbe6f4;
-    border-radius:12px;
-    font-size:18px;
+width:100%;
+padding:16px;
+font-size:18px;
+border-radius:12px;
+border:2px solid #dbe6f4;
 }
 
 input:focus{
-    outline:none;
-    border-color:#0084ff;
+outline:none;
+border-color:#0084ff;
 }
 
 button{
-    width:100%;
-    margin-top:20px;
-    padding:16px;
-    border:none;
-    border-radius:12px;
-    background:#0057b8;
-    color:white;
-    font-size:18px;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
+width:100%;
+padding:16px;
+margin-top:15px;
+border:none;
+border-radius:12px;
+background:#0057b8;
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
 }
 
 button:hover{
-    background:#00479a;
+background:#00479a;
 }
 
 .resultados{
-    margin-top:30px;
-    display:none;
+display:none;
+margin-top:30px;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:15px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
 }
 
 .card{
-    background:white;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.06);
 }
 
 .card h3{
-    font-size:.95rem;
-    color:#666;
-    margin-bottom:10px;
+font-size:.95rem;
+color:#6b7280;
+margin-bottom:10px;
 }
 
 .valor{
-    font-size:1.8rem;
-    font-weight:800;
+font-size:1.8rem;
+font-weight:800;
 }
 
 .azul{
-    color:#0057b8;
+color:#0057b8;
 }
 
 .verde{
-    color:#12a150;
+color:#16a34a;
 }
 
 .resumo{
-    margin-top:20px;
-    background:#eaf5ff;
-    border-left:6px solid #0057b8;
-    padding:20px;
-    border-radius:12px;
+margin-top:25px;
+padding:20px;
+background:#eaf5ff;
+border-left:6px solid #0057b8;
+border-radius:12px;
+line-height:1.7;
+}
+
+.destaque{
+margin-top:20px;
+background:#eafaf0;
+border-left:6px solid #16a34a;
+padding:20px;
+border-radius:12px;
+font-size:1.05rem;
+}
+
+.whatsapp{
+display:block;
+text-decoration:none;
+margin-top:20px;
+}
+
+.whatsapp button{
+background:#16a34a;
+}
+
+.whatsapp button:hover{
+background:#12803f;
 }
 
 .footer{
-    margin-top:25px;
-    text-align:center;
-    color:#666;
-    font-size:.85rem;
+text-align:center;
+margin-top:25px;
+font-size:.85rem;
+color:#6b7280;
 }
 
 @media(max-width:600px){
 
-.hero{
-    padding:30px 20px;
-}
-
 .hero h1{
-    font-size:1.6rem;
+font-size:1.7rem;
 }
 
 .valor{
-    font-size:1.5rem;
+font-size:1.5rem;
 }
 
 }
@@ -168,124 +193,185 @@ button:hover{
 
 <div class="container">
 
-    <div class="hero">
-        <h1>🚛 Calculadora de Economia FQ4</h1>
-        <p>Descubra quanto sua operação pode economizar utilizando FQ4 Diesel.</p>
-    </div>
+<div class="hero">
 
-    <div class="calculadora">
+<!-- INSIRA O LOGO AQUI -->
+<!--
+<img src="logo-fq4.png" class="logo">
+-->
 
-        <label>⛽ Consumo mensal de diesel (litros)</label>
+<h1>🚛 Calculadora de Economia FQ4</h1>
 
-        <input
-            type="number"
-            id="diesel"
-            placeholder="Ex.: 40000">
+<p>
+Descubra em segundos quanto sua operação pode economizar utilizando FQ4 Diesel.
+</p>
 
-        <button onclick="calcular()">
-            📊 CALCULAR ECONOMIA
-        </button>
+</div>
 
-        <div class="resultados" id="resultados">
+<div class="calculadora">
 
-            <div class="grid">
+<label>⛽ Consumo mensal de diesel (litros)</label>
 
-                <div class="card">
-                    <h3>⛽ Consumo Mensal de Diesel</h3>
-                    <div class="valor" id="consumoDiesel"></div>
-                </div>
+<input
+type="number"
+id="diesel"
+placeholder="Ex.: 40000">
 
-                <div class="card">
-                    <h3>💧 Necessidade Mensal de FQ4</h3>
-                    <div class="valor azul" id="consumoFQ4"></div>
-                </div>
+<button onclick="calcular()">
+📊 CALCULAR ECONOMIA
+</button>
 
-                <div class="card">
-                    <h3>💰 Investimento em FQ4</h3>
-                    <div class="valor" id="custoFQ4"></div>
-                </div>
+<div class="resultados" id="resultados">
 
-                <div class="card">
-                    <h3>🚛 Gasto Mensal com Diesel</h3>
-                    <div class="valor" id="gastoDiesel"></div>
-                </div>
+<div class="grid">
 
-                <div class="card">
-                    <h3>📉 Economia Mínima Estimada (3%)</h3>
-                    <div class="valor azul" id="economia"></div>
-                </div>
+<div class="card">
+<h3>⛽ Consumo Mensal de Diesel</h3>
+<div class="valor" id="consumoDiesel"></div>
+</div>
 
-                <div class="card">
-                    <h3>✅ Ganho Líquido Estimado</h3>
-                    <div class="valor verde" id="ganho"></div>
-                </div>
+<div class="card">
+<h3>💧 Necessidade Mensal de FQ4</h3>
+<div class="valor azul" id="consumoFQ4"></div>
+</div>
 
-            </div>
+<div class="card">
+<h3>💰 Investimento em FQ4</h3>
+<div class="valor" id="custoFQ4"></div>
+</div>
 
-            <div class="resumo" id="mensagem"></div>
+<div class="card">
+<h3>🚛 Gasto Mensal com Diesel</h3>
+<div class="valor" id="gastoDiesel"></div>
+</div>
 
-            <div class="footer">
-                Simulação baseada em economia mínima estimada de 3% e diesel a R$ 7,00/L.
-            </div>
+<div class="card">
+<h3>📉 Economia Mínima Estimada (3%)</h3>
+<div class="valor azul" id="economia"></div>
+</div>
 
-        </div>
+<div class="card">
+<h3>✅ Ganho Líquido Mensal</h3>
+<div class="valor verde" id="ganho"></div>
+</div>
 
-    </div>
+<div class="card">
+<h3>📈 Economia Anual Estimada</h3>
+<div class="valor verde" id="economiaAnual"></div>
+</div>
+
+<div class="card">
+<h3>🎯 ROI Estimado</h3>
+<div class="valor azul" id="roi"></div>
+</div>
+
+</div>
+
+<div class="resumo" id="mensagem"></div>
+
+<div class="destaque" id="comparativo"></div>
+
+<a
+class="whatsapp"
+href="https://wa.me/5514999999999"
+target="_blank">
+
+<button>
+📲 Solicitar Atendimento
+</button>
+
+</a>
+
+<div class="footer">
+Simulação baseada em economia mínima estimada de 3% e diesel a R$ 7,00/L.
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <script>
 
 function moeda(valor){
-    return valor.toLocaleString('pt-BR',{
-        style:'currency',
-        currency:'BRL'
-    });
+return valor.toLocaleString('pt-BR',{
+style:'currency',
+currency:'BRL'
+});
 }
 
 function calcular(){
 
-    let diesel = Number(document.getElementById('diesel').value);
+let diesel = Number(document.getElementById('diesel').value);
 
-    if(!diesel || diesel <= 0){
-        alert("Informe o consumo mensal de diesel.");
-        return;
-    }
+if(!diesel || diesel <= 0){
 
-    let fq4 = diesel / 1000;
-    let custoFQ4 = fq4 * 165;
-    let gastoDiesel = diesel * 7;
-    let economia = gastoDiesel * 0.03;
-    let ganho = economia - custoFQ4;
+alert("Informe o consumo mensal de diesel.");
 
-    document.getElementById('resultados').style.display='block';
+return;
 
-    document.getElementById('consumoDiesel').innerHTML =
-        diesel.toLocaleString('pt-BR') + " L";
+}
 
-    document.getElementById('consumoFQ4').innerHTML =
-        fq4.toFixed(1) + " L";
+let fq4 = diesel / 1000;
 
-    document.getElementById('custoFQ4').innerHTML =
-        moeda(custoFQ4);
+let custoFQ4 = fq4 * 165;
 
-    document.getElementById('gastoDiesel').innerHTML =
-        moeda(gastoDiesel);
+let gastoDiesel = diesel * 7;
 
-    document.getElementById('economia').innerHTML =
-        moeda(economia);
+let economia = gastoDiesel * 0.03;
 
-    document.getElementById('ganho').innerHTML =
-        moeda(ganho);
+let ganho = economia - custoFQ4;
 
-    document.getElementById('mensagem').innerHTML =
-        `<strong>🎯 Resultado:</strong><br><br>
-        Utilizando aproximadamente <strong>${fq4.toFixed(1)} litros de FQ4 por mês</strong>,
-        sua operação poderá economizar cerca de
-        <strong>${moeda(economia)}</strong> por mês.
-        Mesmo considerando apenas uma economia mínima estimada de 3%,
-        o retorno projetado após o investimento em FQ4 é de
-        <strong>${moeda(ganho)}</strong>.`;
+let economiaAnual = ganho * 12;
+
+let roi = (ganho / custoFQ4) * 100;
+
+let percentualInvestimento = (custoFQ4 / gastoDiesel) * 100;
+
+document.getElementById('resultados').style.display='block';
+
+document.getElementById('consumoDiesel').innerHTML =
+diesel.toLocaleString('pt-BR') + " L";
+
+document.getElementById('consumoFQ4').innerHTML =
+fq4.toFixed(1) + " L";
+
+document.getElementById('custoFQ4').innerHTML =
+moeda(custoFQ4);
+
+document.getElementById('gastoDiesel').innerHTML =
+moeda(gastoDiesel);
+
+document.getElementById('economia').innerHTML =
+moeda(economia);
+
+document.getElementById('ganho').innerHTML =
+moeda(ganho);
+
+document.getElementById('economiaAnual').innerHTML =
+moeda(economiaAnual);
+
+document.getElementById('roi').innerHTML =
+roi.toFixed(1) + "%";
+
+document.getElementById('mensagem').innerHTML =
+
+`<strong>🎯 Resultado da Simulação</strong><br><br>
+
+Utilizando aproximadamente <strong>${fq4.toFixed(1)} litros de FQ4 por mês</strong>,
+sua operação poderá economizar cerca de
+<strong>${moeda(economia)}</strong> por mês.
+
+Mesmo considerando apenas uma economia mínima estimada de 3%, o retorno projetado após o investimento em FQ4 é de
+<strong>${moeda(ganho)}</strong> por mês.`;
+
+document.getElementById('comparativo').innerHTML =
+
+`💡 O investimento em FQ4 representa apenas
+<strong>${percentualInvestimento.toFixed(2)}%</strong>
+do seu gasto mensal com diesel.`;
+
 }
 
 </script>
