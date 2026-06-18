@@ -310,16 +310,9 @@ placeholder="Ex.: 40000">
 
 <div class="destaque" id="comparativo"></div>
 
-<a
-class="whatsapp"
-href="https://wa.me/5519971253456"
-target="_blank">
-
-<button>
+<button id="btnWhatsapp" style="display:none;">
 📲 Falar com um Especialista
 </button>
-
-</a>
 
 <div class="footer">
 
@@ -348,13 +341,28 @@ currency:'BRL'
 
 function calcular(){
 
-let diesel = Number(document.getElementById('diesel').value);
+let mensagem = `Olá! Fiz uma simulação na Calculadora FQ4.
 
-if(!diesel || diesel <= 0){
+⛽ Consumo mensal de diesel: ${diesel.toLocaleString('pt-BR')} L
 
-alert("Informe o consumo mensal de diesel.");
+💧 Necessidade mensal de FQ4: ${fq4.toFixed(1)} L
 
-return;
+📉 Economia potencial mensal: ${moeda(economia)}
+
+💵 Retorno mensal estimado: ${moeda(ganho)}
+
+Gostaria de falar com um especialista.`;
+
+let urlWhatsapp =
+`https://wa.me/5519971253456?text=${encodeURIComponent(mensagem)}`;
+
+let botao = document.getElementById('btnWhatsapp');
+
+botao.style.display = 'block';
+
+botao.onclick = function() {
+    window.open(urlWhatsapp, '_blank');
+};
 
 }
 
